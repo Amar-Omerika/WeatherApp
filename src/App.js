@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { weather } from "./api/weather";
+import { fweather } from "./api/weather";
 
 const App = () => {
 	const [query, setQuery] = useState("");
@@ -14,15 +14,23 @@ const App = () => {
 	};
 
 	return (
-		<div>
+		<div className="main-container">
 			<input
 				type="text"
 				className="search"
 				placeholder="Search.."
 				value={query}
-				onChange={(ev) => setQuery(event.target.value)}
+				onChange={(ev) => setQuery(ev.target.value)}
 				onKeyPress={search}
 			/>
+			{weather.main && (
+				<div className="city">
+					<h2 className="city-name">
+						<span>{weather.name}</span>
+						<sup>{weather.sys.country}</sup>
+					</h2>
+				</div>
+			)}
 		</div>
 	);
 };
