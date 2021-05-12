@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { fetchWeather } from "./api/fetchWeather";
 import "./App.css";
 
@@ -21,7 +20,7 @@ const App = () => {
 			<input
 				type="text"
 				className="search"
-				placeholder="Search..."
+				placeholder="Enter the city..."
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
 				onKeyPress={search}
